@@ -15,17 +15,18 @@ struct PlantCareView: View {
 		case light
 	}
 	
+	let model: Plant
 	@State private var currentPanel: CarePanel = .water
 	
 	var body: some View {
 		HStack {
 			switch currentPanel {
 			case .water:
-				PlantCareChartView(title: "Water Level", value: 0.33)
+				PlantCareChartView(title: "Water Level", value: model.water)
 			case .temperature:
-				PlantCareChartView(title: "Temperature", value: 0.75)
+				PlantCareChartView(title: "Temperature", value: model.temperature)
 			case .light:
-				PlantCareChartView(title: "Light Level", value: 0.11)
+				PlantCareChartView(title: "Light Level", value: model.light)
 			}
 			
 			Spacer()
@@ -73,6 +74,6 @@ struct PlantCareView: View {
 
 struct PlantCareView_Previews: PreviewProvider {
     static var previews: some View {
-        PlantCareView()
+        PlantCareView(model: ModelData.plants[0])
     }
 }

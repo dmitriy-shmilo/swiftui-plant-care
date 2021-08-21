@@ -8,26 +8,28 @@
 import SwiftUI
 
 struct ListItemView: View {
+	let model: Plant
+
 	var body: some View {
 		HStack {
-			Image("AloeVera")
+			Image(model.imageName)
 				.resizable()
 				.scaledToFit()
 				.frame(width:120)
 				.padding(.horizontal, 15)
 			
 			VStack(alignment: .leading) {
-				Text("Aloe")
+				Text(model.name)
 					.font(.system(size: 20, weight: .bold))
 					.foregroundColor(.itemTitle)
 					.padding(.top)
-				Text("Living Room")
+				Text(model.location)
 					.font(.system(size: 12, weight: .regular))
 					.foregroundColor(.itemSubtitle)
 					.padding(.bottom)
 				
 				Spacer()
-				Text("Healthy")
+				Text(model.status.rawValue)
 					.font(.system(size: 12, weight: .bold))
 					.foregroundColor(.statusForeground)
 					.padding(.vertical, 6)
@@ -91,6 +93,6 @@ struct ListItemView: View {
 
 struct ListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ListItemView()
+        ListItemView(model: ModelData.plants[0])
     }
 }

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DetailsView: View {
-	
-	@State var hasAppeared = false
+	let model: Plant
+	@State private var hasAppeared = false
 	
 	var body: some View {
 		ScrollView {
@@ -19,7 +19,7 @@ struct DetailsView: View {
 					.padding(.top, 30)
 				
 				if hasAppeared {
-					DetailsHeaderView()
+					DetailsHeaderView(model: model)
 					
 					
 					Text("Plant Care")
@@ -29,7 +29,7 @@ struct DetailsView: View {
 						.transition(AnyTransition.move(edge: .trailing))
 						.animation(.easeInOut.delay(0.2))
 					
-					PlantCareView()
+					PlantCareView(model: model)
 				}
 			}
 			.background(
@@ -54,6 +54,6 @@ struct DetailsView: View {
 
 struct DetailsView_Previews: PreviewProvider {
 	static var previews: some View {
-		DetailsView()
+		DetailsView(model: ModelData.plants[0])
 	}
 }

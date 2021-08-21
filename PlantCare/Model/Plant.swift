@@ -31,7 +31,7 @@ struct Plant: Hashable, Identifiable {
 struct ModelData {
 	static var plants: [Plant] = [
 		.init(name: "Aloe Vera", location: "Living Room", status: .healthy, water: 0.66, light: 0.75, temperature: 0.55, imageName: "AloeVera"),
-		.init(name: "Orchid", location: "Living Room", status: .healthy, water: 0.66, light: 0.75, temperature: 0.55, imageName: "Orchid"),
-		.init(name: "Succulent", location: "Guest Room", status: .deteriorating, water: 0.66, light: 0.75, temperature: 0.55, imageName: "Succulent"),
+		.init(name: "Orchid", location: "Living Room", status: .healthy, water: 0.25, light: 0.73, temperature: 0.50, imageName: "Orchid"),
+		.init(name: "Succulent", location: "Guest Room", status: .deteriorating, water: 0.11, light: 0.90, temperature: 0.80, imageName: "Succulent"),
 	]
 }

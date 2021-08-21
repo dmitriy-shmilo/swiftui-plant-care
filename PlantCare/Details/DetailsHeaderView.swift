@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct DetailsHeaderView: View {
-
+	let model: Plant
 	@State private var isFavorite = false
 
 	var body: some View {
-		Image("AloeVera")
+		Image(model.imageName)
 			.resizable()
 			.scaledToFit()
 			.frame(height: 350)
@@ -21,10 +21,10 @@ struct DetailsHeaderView: View {
 		
 		HStack {
 			VStack (alignment: .leading) {
-				Text("Aloe Vera")
+				Text(model.name)
 					.font(.system(size: 35, weight: .bold))
 					.foregroundColor(.itemTitle)
-				Text("Living Room")
+				Text(model.location)
 					.font(.system(size: 16, weight: .regular, design: .rounded))
 					.foregroundColor(.itemSubtitle)
 			}
@@ -57,6 +57,6 @@ struct DetailsHeaderView: View {
 
 struct DetailsHeaderView_Previews: PreviewProvider {
 	static var previews: some View {
-		DetailsHeaderView()
+		DetailsHeaderView(model: ModelData.plants[0])
 	}
 }

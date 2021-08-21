@@ -26,9 +26,9 @@ struct HomeView: View {
 					.padding([.horizontal, .bottom])
 				
 				
-				ForEach(0...3, id: \.self) { _ in
-					NavigationLink(destination:DetailsView()) {
-						ListItemView()
+				ForEach(ModelData.plants) { plant in
+					NavigationLink(destination:DetailsView(model: plant)) {
+						ListItemView(model: plant)
 					}
 				}
 			}
