@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DetailsHeaderView: View {
+
+	@State private var isFavorite = false
+
 	var body: some View {
 		Image("AloeVera")
 			.resizable()
@@ -26,10 +29,24 @@ struct DetailsHeaderView: View {
 					.foregroundColor(.itemSubtitle)
 			}
 			Spacer()
-			Button(action: {}) {
-				Image(systemName: "heart.circle.fill")
-					.foregroundColor(.itemTitle)
-					.font(.system(size: 60))
+			Button(action: {
+				withAnimation {
+					isFavorite.toggle()
+				}
+			}) {
+				if (isFavorite) {
+					Image(systemName: "heart.fill")
+						.foregroundColor(.itemTitle)
+						.font(.system(size: 40))
+						.transition(.scale)
+						.animation(.easeIn)
+				} else {
+					Image(systemName: "heart")
+						.foregroundColor(.itemTitle)
+						.font(.system(size: 40))
+						.transition(.scale)
+						.animation(.easeIn)
+				}
 			}
 		}
 		.padding(.horizontal)

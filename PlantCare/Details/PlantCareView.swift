@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PlantCareView: View {
+
+	@State private var progressValue: Float = 0.0
+	
 	var body: some View {
 		HStack {
 			VStack {
@@ -19,9 +22,15 @@ struct PlantCareView: View {
 					backBarColor: .itemSubtitle.opacity(0.5),
 					frontBarColor: .itemTitle,
 					strokeWidth: 10,
-					value: .constant(0.66)
+					value: $progressValue
 				)
 				.padding([.horizontal, .bottom], 20)
+				.onAppear {
+					withAnimation {
+						progressValue = 0.33
+					}
+				}
+				
 			}
 			.frame(width: 160, height: 175)
 			.background(RoundedCornersShape(radius: 20, corners: [.topRight, .bottomRight])
@@ -47,7 +56,6 @@ struct PlantCareView: View {
 						Circle().foregroundColor(.buttonBackground)
 					)
 				}
-				
 				
 				HStack {
 					Text("Temperature")

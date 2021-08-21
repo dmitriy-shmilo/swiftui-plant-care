@@ -22,13 +22,28 @@ struct RadialProgressView: View {
 					.foregroundColor(backBarColor)
 				Circle()
 					.trim(from: 0.0, to: CGFloat(value))
-					.stroke(style: StrokeStyle(lineWidth: strokeWidth, lineCap: .round, lineJoin: .round))
+					.stroke(
+						style: StrokeStyle(
+							lineWidth: strokeWidth,
+							lineCap: .round,
+							lineJoin: .round
+						)
+					)
 					.foregroundColor(frontBarColor)
 					.rotationEffect(Angle(degrees: -90))
-				
+					// TODO: don't hardcode a delay here,
+					// since it's highly specific to the details view
+					.animation(.easeInOut.delay(0.4), value: value)
+
 				Text("\(Int(min(max(value, 0.0), 1.0) * 100)) %")
 					.foregroundColor(frontBarColor)
-					.font(.system(size: min(proxy.size.width, proxy.size.height) / 3.5, weight: .semibold, design: .rounded))
+					.font(
+						.system(
+							size: min(proxy.size.width, proxy.size.height) / 3.5,
+							weight: .semibold,
+							design: .rounded
+						)
+					)
 			}
 		}
 	}
