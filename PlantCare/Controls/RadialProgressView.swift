@@ -13,8 +13,13 @@ struct RadialProgressView: View {
 	let strokeWidth: CGFloat
 	
 	@Binding var value: Float
+	@State private var shouldShowLabel: Bool = false
 	
 	var body: some View {
+		// TODO: don't hardcode a delay here,
+		// since it's highly specific to the details view
+		let delay = 0.4
+
 		GeometryReader { proxy in
 			ZStack {
 				Circle()
@@ -31,19 +36,28 @@ struct RadialProgressView: View {
 					)
 					.foregroundColor(frontBarColor)
 					.rotationEffect(Angle(degrees: -90))
-					// TODO: don't hardcode a delay here,
-					// since it's highly specific to the details view
-					.animation(.easeInOut.delay(0.4), value: value)
-
-				Text("\(Int(min(max(value, 0.0), 1.0) * 100)) %")
-					.foregroundColor(frontBarColor)
-					.font(
-						.system(
-							size: min(proxy.size.width, proxy.size.height) / 3.5,
-							weight: .semibold,
-							design: .rounded
+					.animation(.easeInOut.delay(delay), value: value)
+				
+				if shouldShowLabel {
+					Text("\(Int(min(max(value, 0.0), 1.0) * 100)) %")
+						.foregroundColor(frontBarColor)
+						.font(
+							.system(
+								size: min(proxy.size.width, proxy.size.height) / 3.5,
+								weight: .semibold,
+								design: .rounded
+							)
 						)
-					)
+						.animation(
+							// FIXME: this delay is completely ignored for some reason
+							.easeIn.delay(delay),
+							value: shouldShowLabel)
+				}
+			}
+		}
+		.onAppear {
+			withAnimation {
+				shouldShowLabel = true
 			}
 		}
 	}
