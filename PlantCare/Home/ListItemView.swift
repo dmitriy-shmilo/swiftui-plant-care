@@ -9,6 +9,19 @@ import SwiftUI
 
 struct ListItemView: View {
 	let model: Plant
+	
+	var statusColor: Color {
+		switch model.status {
+		case .healthy:
+			return .healthyStatusBackground
+		case .deteriorating:
+			return .deterioratingStatusBackground
+		case .critical:
+			return .criticalStatusBackground
+		case .dead:
+			return .deadStatusBackground
+		}
+	}
 
 	var body: some View {
 		HStack {
@@ -31,48 +44,33 @@ struct ListItemView: View {
 				Spacer()
 				Text(model.status.rawValue)
 					.font(.system(size: 12, weight: .bold))
-					.foregroundColor(.statusForeground)
+					.foregroundColor(.font.opacity(0.75))
 					.padding(.vertical, 6)
 					.padding(.horizontal, 8)
-					.background(RoundedRectangle(cornerRadius: 15).foregroundColor(.statusBackground))
+					.background(
+						RoundedRectangle(cornerRadius: 15)
+							.foregroundColor(statusColor)
+					)
 				Spacer()
 				
+				let indicators = [
+					(image: "Water", imageHeight: 30.0),
+					(image: "Temperature", imageHeight: 25.0),
+					(image: "Light", imageHeight: 40.0),
+				]
 				HStack(spacing: 20) {
-					Button(action: {}) {
-						Image("Water")
+					ForEach(indicators, id: \.self.image) { ind in
+						Image(ind.image)
 							.resizable()
 							.foregroundColor(.buttonForeground)
 							.scaledToFit()
-							.frame(height: 30)
+							.frame(height: CGFloat(ind.imageHeight))
+							.background(
+								Circle().foregroundColor(.buttonBackground)
+									.frame(width: 40, height: 40)
+							)
+							.frame(width: 40, height: 40)
 					}
-					.frame(width: 40, height: 40)
-					.background(
-						Circle().foregroundColor(.buttonBackground)
-					)
-					
-					Button(action: {}) {
-						Image("Temperature")
-							.resizable()
-							.foregroundColor(.buttonForeground)
-							.scaledToFit()
-							.frame(height: 25)
-					}
-					.frame(width: 40, height: 40)
-					.background(
-						Circle().foregroundColor(.buttonBackground)
-					)
-					
-					Button(action: {}) {
-						Image("Light")
-							.resizable()
-							.foregroundColor(.buttonForeground)
-							.scaledToFit()
-							.frame(height: 40)
-					}
-					.frame(width: 40, height: 40)
-					.background(
-						Circle().foregroundColor(.buttonBackground)
-					)
 				}
 				.padding(.bottom, 20)
 			}

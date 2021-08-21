@@ -28,12 +28,20 @@ extension Color {
 		Color("ItemSubtitleColor")
 	}
 	
-	static var statusBackground: Color {
-		Color("StatusBackgroundColor")
+	static var healthyStatusBackground: Color {
+		Color("HealthyStatusBackgroundColor")
 	}
 	
-	static var statusForeground: Color {
-		Color("StatusForegroundColor")
+	static var deterioratingStatusBackground: Color {
+		Color("DeterioratingStatusBackgroundColor")
+	}
+	
+	static var criticalStatusBackground: Color {
+		Color("CriticalStatusBackgroundColor")
+	}
+	
+	static var deadStatusBackground: Color {
+		Color("DeadStatusBackgroundColor")
 	}
 	
 	static var buttonBackground: Color {
