@@ -10,9 +10,23 @@ import SwiftUI
 struct PlantCareView: View {
 	var body: some View {
 		HStack {
-			RoundedCornersShape(radius: 20, corners: [.topRight, .bottomRight])
-				.frame(width: 160, height: 175)
-				.foregroundColor(.panelBackground)
+			VStack {
+				Text("Water Level")
+					.foregroundColor(.itemTitle)
+					.font(.system(size: 10, weight: .medium))
+					.padding(.top)
+				RadialProgressView(
+					backBarColor: .itemSubtitle.opacity(0.5),
+					frontBarColor: .itemTitle,
+					strokeWidth: 10,
+					value: .constant(0.66)
+				)
+				.padding([.horizontal, .bottom], 20)
+			}
+			.frame(width: 160, height: 175)
+			.background(RoundedCornersShape(radius: 20, corners: [.topRight, .bottomRight])
+			.foregroundColor(.panelBackground))
+			
 			Spacer()
 			VStack(alignment: .trailing, spacing: 25) {
 				

@@ -20,6 +20,7 @@
 		5DCA275226D0481B00E3AB5B /* DetailsToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCA275126D0481B00E3AB5B /* DetailsToolbarView.swift */; };
 		5DCA275426D050D900E3AB5B /* DetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCA275326D050D900E3AB5B /* DetailsHeaderView.swift */; };
 		5DCA275626D0511F00E3AB5B /* PlantCareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCA275526D0511F00E3AB5B /* PlantCareView.swift */; };
+		5DE52ED726D11439000A0E71 /* RadialProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE52ED626D11439000A0E71 /* RadialProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		5DCA275126D0481B00E3AB5B /* DetailsToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsToolbarView.swift; sourceTree = "<group>"; };
 		5DCA275326D050D900E3AB5B /* DetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsHeaderView.swift; sourceTree = "<group>"; };
 		5DCA275526D0511F00E3AB5B /* PlantCareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCareView.swift; sourceTree = "<group>"; };
+		5DE52ED626D11439000A0E71 /* RadialProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				5DCA273426D02CD700E3AB5B /* PlantCareApp.swift */,
 				5DCA274326D03E7A00E3AB5B /* RoundedCornersShape.swift */,
 				5DCA273826D02CDA00E3AB5B /* Assets.xcassets */,
+				5DE52ED526D11426000A0E71 /* Controls */,
 				5DCA274E26D047ED00E3AB5B /* Details */,
 				5DCA274526D042A800E3AB5B /* Home */,
 				5DCA273A26D02CDA00E3AB5B /* Preview Content */,
@@ -110,6 +113,14 @@
 				5DCA275526D0511F00E3AB5B /* PlantCareView.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		5DE52ED526D11426000A0E71 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				5DE52ED626D11439000A0E71 /* RadialProgressView.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +200,7 @@
 				5DCA273726D02CD700E3AB5B /* ContentView.swift in Sources */,
 				5DCA275026D047F800E3AB5B /* DetailsView.swift in Sources */,
 				5DCA275626D0511F00E3AB5B /* PlantCareView.swift in Sources */,
+				5DE52ED726D11439000A0E71 /* RadialProgressView.swift in Sources */,
 				5DCA274926D042EF00E3AB5B /* HomeView.swift in Sources */,
 				5DCA275226D0481B00E3AB5B /* DetailsToolbarView.swift in Sources */,
 				5DCA273526D02CD700E3AB5B /* PlantCareApp.swift in Sources */,
