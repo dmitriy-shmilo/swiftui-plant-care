@@ -29,69 +29,37 @@ struct PlantCareView: View {
 			}
 			
 			Spacer()
+			let buttons = [
+				(panel: CarePanel.water, title: "Water meter", image: "Water", imageHeight: 30.0),
+				(panel: CarePanel.temperature, title: "Temperature", image: "Temperature", imageHeight: 25.0),
+				(panel: CarePanel.light, title: "Sunlight", image: "Light", imageHeight: 40.0),
+			]
 			VStack(alignment: .trailing, spacing: 25) {
-				HStack {
-					Text("Water meter")
-						.font(.system(size: 16, weight: .semibold, design: .rounded))
-						.foregroundColor(.itemSubtitle)
-					
-					Button(action: {
-						withAnimation {
-							currentPanel = .water
+				ForEach(buttons, id: \.self.panel) { button in
+					HStack {
+						Text(button.title)
+							.font(.system(size: 16, weight: .semibold, design: .rounded))
+							.foregroundColor(.itemSubtitle)
+							.opacity(currentPanel == button.panel ? 0.33 : 1)
+						
+						Button(action: {
+							withAnimation {
+								currentPanel = button.panel
+							}
+						}) {
+							Image(button.image)
+								.resizable()
+								.foregroundColor(.buttonForeground)
+								.scaledToFit()
+								.frame(height: CGFloat(button.imageHeight))
+								.background(
+							Circle().foregroundColor(.buttonBackground).frame(width: 40, height: 40)
+						)
 						}
-					}) {
-						Image("Water")
-							.resizable()
-							.foregroundColor(.buttonForeground)
-							.scaledToFit()
-							.frame(height: 30)
+						.frame(width: 40, height: 40)
+						.disabled(currentPanel == button.panel)
+						.opacity(currentPanel == button.panel ? 0.33 : 1)
 					}
-					.frame(width: 40, height: 40)
-					.background(
-						Circle().foregroundColor(.buttonBackground)
-					)
-				}
-				
-				HStack {
-					Text("Temperature")
-						.font(.system(size: 16, weight: .semibold, design: .rounded))
-						.foregroundColor(.itemSubtitle)
-					Button(action: {
-						withAnimation {
-							currentPanel = .temperature
-						}
-					}) {
-						Image("Temperature")
-							.resizable()
-							.foregroundColor(.buttonForeground)
-							.scaledToFit()
-							.frame(height: 25)
-					}
-					.frame(width: 40, height: 40)
-					.background(
-						Circle().foregroundColor(.buttonBackground)
-					)
-				}
-				
-				HStack {
-					Text("Sunlight")
-						.font(.system(size: 16, weight: .semibold, design: .rounded))
-						.foregroundColor(.itemSubtitle)
-					Button(action: {
-						withAnimation {
-							currentPanel = .light
-						}
-					}) {
-						Image("Light")
-							.resizable()
-							.foregroundColor(.buttonForeground)
-							.scaledToFit()
-							.frame(height: 40)
-					}
-					.frame(width: 40, height: 40)
-					.background(
-						Circle().foregroundColor(.buttonBackground)
-					)
 				}
 			}
 			.padding(.trailing)
