@@ -25,12 +25,16 @@ struct HomeView: View {
 					.frame(maxWidth: .infinity, alignment: .leading)
 					.padding([.horizontal, .bottom])
 				
-				ListItemView()
-				ListItemView()
-				ListItemView()
+				
+				ForEach(0...3, id: \.self) { _ in
+					NavigationLink(destination:DetailsView()) {
+						ListItemView()
+					}
+				}
 			}
 		}
 		.ignoresSafeArea()
+		.navigationBarHidden(true)
     }
 }
 

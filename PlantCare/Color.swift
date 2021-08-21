@@ -43,4 +43,8 @@ extension Color {
 	static var buttonForeground: Color {
 		Color("ButtonForegroundColor")
 	}
+	
+	static var panelBackground: Color {
+		Color("PanelBackgroundColor")
+	}
 }
