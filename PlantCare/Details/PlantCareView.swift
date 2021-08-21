@@ -9,42 +9,37 @@ import SwiftUI
 
 struct PlantCareView: View {
 
-	@State private var progressValue: Float = 0.0
+	enum CarePanel {
+		case water
+		case temperature
+		case light
+	}
+	
+	@State private var currentPanel: CarePanel = .water
 	
 	var body: some View {
 		HStack {
-			VStack {
-				Text("Water Level")
-					.foregroundColor(.itemTitle)
-					.font(.system(size: 10, weight: .medium))
-					.padding(.top)
-				RadialProgressView(
-					backBarColor: .itemSubtitle.opacity(0.5),
-					frontBarColor: .itemTitle,
-					strokeWidth: 10,
-					value: $progressValue
-				)
-				.padding([.horizontal, .bottom], 20)
-				.onAppear {
-					withAnimation {
-						progressValue = 0.33
-					}
-				}
-				
+			switch currentPanel {
+			case .water:
+				PlantCareChartView(title: "Water Level", value: 0.33)
+			case .temperature:
+				PlantCareChartView(title: "Temperature", value: 0.75)
+			case .light:
+				PlantCareChartView(title: "Light Level", value: 0.11)
 			}
-			.frame(width: 160, height: 175)
-			.background(RoundedCornersShape(radius: 20, corners: [.topRight, .bottomRight])
-			.foregroundColor(.panelBackground))
 			
 			Spacer()
 			VStack(alignment: .trailing, spacing: 25) {
-				
 				HStack {
 					Text("Water meter")
 						.font(.system(size: 16, weight: .semibold, design: .rounded))
 						.foregroundColor(.itemSubtitle)
 					
-					Button(action: {}) {
+					Button(action: {
+						withAnimation {
+							currentPanel = .water
+						}
+					}) {
 						Image("Water")
 							.resizable()
 							.foregroundColor(.buttonForeground)
@@ -61,7 +56,11 @@ struct PlantCareView: View {
 					Text("Temperature")
 						.font(.system(size: 16, weight: .semibold, design: .rounded))
 						.foregroundColor(.itemSubtitle)
-					Button(action: {}) {
+					Button(action: {
+						withAnimation {
+							currentPanel = .temperature
+						}
+					}) {
 						Image("Temperature")
 							.resizable()
 							.foregroundColor(.buttonForeground)
@@ -78,7 +77,11 @@ struct PlantCareView: View {
 					Text("Sunlight")
 						.font(.system(size: 16, weight: .semibold, design: .rounded))
 						.foregroundColor(.itemSubtitle)
-					Button(action: {}) {
+					Button(action: {
+						withAnimation {
+							currentPanel = .light
+						}
+					}) {
 						Image("Light")
 							.resizable()
 							.foregroundColor(.buttonForeground)
@@ -92,6 +95,7 @@ struct PlantCareView: View {
 				}
 			}
 			.padding(.trailing)
+			.frame(height: 175)
 		}
 		.transition(AnyTransition.move(edge: .trailing))
 		.animation(.easeInOut.delay(0.2))
