@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D1F50CF26D1D0FB0033504F /* VitalsIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1F50CE26D1D0FB0033504F /* VitalsIcon.swift */; };
+		5D1F50D226D1D12A0033504F /* VitalsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1F50D126D1D12A0033504F /* VitalsButton.swift */; };
 		5DCA273526D02CD700E3AB5B /* PlantCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCA273426D02CD700E3AB5B /* PlantCareApp.swift */; };
 		5DCA273726D02CD700E3AB5B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCA273626D02CD700E3AB5B /* ContentView.swift */; };
 		5DCA273926D02CDA00E3AB5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DCA273826D02CDA00E3AB5B /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D1F50CE26D1D0FB0033504F /* VitalsIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitalsIcon.swift; sourceTree = "<group>"; };
+		5D1F50D126D1D12A0033504F /* VitalsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitalsButton.swift; sourceTree = "<group>"; };
 		5DCA273126D02CD700E3AB5B /* PlantCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCA273426D02CD700E3AB5B /* PlantCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCareApp.swift; sourceTree = "<group>"; };
 		5DCA273626D02CD700E3AB5B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				5DE52ED626D11439000A0E71 /* RadialProgressView.swift */,
+				5D1F50D126D1D12A0033504F /* VitalsButton.swift */,
+				5D1F50CE26D1D0FB0033504F /* VitalsIcon.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -218,8 +224,10 @@
 				5DE52ED726D11439000A0E71 /* RadialProgressView.swift in Sources */,
 				5DCA274926D042EF00E3AB5B /* HomeView.swift in Sources */,
 				5DE2F6C726D19D1A00976F6E /* Plant.swift in Sources */,
+				5D1F50D226D1D12A0033504F /* VitalsButton.swift in Sources */,
 				5DCA275226D0481B00E3AB5B /* DetailsToolbarView.swift in Sources */,
 				5DCA273526D02CD700E3AB5B /* PlantCareApp.swift in Sources */,
+				5D1F50CF26D1D0FB0033504F /* VitalsIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

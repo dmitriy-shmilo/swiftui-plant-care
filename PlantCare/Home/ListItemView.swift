@@ -10,19 +10,6 @@ import SwiftUI
 struct ListItemView: View {
 	let model: Plant
 	
-	var statusColor: Color {
-		switch model.status {
-		case .healthy:
-			return .healthyStatusBackground
-		case .deteriorating:
-			return .deterioratingStatusBackground
-		case .critical:
-			return .criticalStatusBackground
-		case .dead:
-			return .deadStatusBackground
-		}
-	}
-
 	var body: some View {
 		HStack {
 			Image(model.imageName)
@@ -49,27 +36,25 @@ struct ListItemView: View {
 					.padding(.horizontal, 8)
 					.background(
 						RoundedRectangle(cornerRadius: 15)
-							.foregroundColor(statusColor)
+							.foregroundColor(.statusBackgroundColor(status: model.status))
 					)
 				Spacer()
 				
 				let indicators = [
-					(image: "Water", imageHeight: 30.0),
-					(image: "Temperature", imageHeight: 25.0),
-					(image: "Light", imageHeight: 40.0),
+					(image: "Water", imageHeight: 30.0, vitals: model.water),
+					(image: "Temperature", imageHeight: 25.0, vitals: model.temperature),
+					(image: "Light", imageHeight: 40.0, vitals: model.light),
 				]
 				HStack(spacing: 20) {
 					ForEach(indicators, id: \.self.image) { ind in
-						Image(ind.image)
-							.resizable()
-							.foregroundColor(.buttonForeground)
-							.scaledToFit()
-							.frame(height: CGFloat(ind.imageHeight))
-							.background(
-								Circle().foregroundColor(.buttonBackground)
-									.frame(width: 40, height: 40)
-							)
-							.frame(width: 40, height: 40)
+						VitalsIcon(
+							imageName: ind.image,
+							imageHeight: CGFloat(ind.imageHeight),
+							backgroundColor:
+								.statusBackgroundColor(
+									status: ind.vitals.status
+								)
+							.opacity(0.5))
 					}
 				}
 				.padding(.bottom, 20)

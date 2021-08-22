@@ -56,3 +56,18 @@ extension Color {
 		Color("PanelBackgroundColor")
 	}
 }
+
+extension Color {
+	static func statusBackgroundColor(status: Status) -> Color {
+		switch status {
+		case .healthy:
+			return .healthyStatusBackground
+		case .deteriorating:
+			return .deterioratingStatusBackground
+		case .critical:
+			return .criticalStatusBackground
+		case .dead:
+			return .deadStatusBackground
+		}
+	}
+}

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlantCareView: View {
-
+	
 	enum CarePanel {
 		case water
 		case temperature
@@ -22,19 +22,37 @@ struct PlantCareView: View {
 		HStack {
 			switch currentPanel {
 			case .water:
-				PlantCareChartView(title: "Water Level", value: model.water)
+				PlantCareChartView(title: "Water Level", value: model.water.value)
 			case .temperature:
-				PlantCareChartView(title: "Temperature", value: model.temperature)
+				PlantCareChartView(title: "Temperature", value: model.temperature.value)
 			case .light:
-				PlantCareChartView(title: "Light Level", value: model.light)
+				PlantCareChartView(title: "Light Level", value: model.light.value)
 			}
 			
 			Spacer()
 			let buttons = [
-				(panel: CarePanel.water, title: "Water meter", image: "Water", imageHeight: 30.0),
-				(panel: CarePanel.temperature, title: "Temperature", image: "Temperature", imageHeight: 25.0),
-				(panel: CarePanel.light, title: "Sunlight", image: "Light", imageHeight: 40.0),
+				(
+					panel: CarePanel.water,
+					title: "Water meter",
+					image: "Water",
+					imageHeight: 30.0,
+					background: Color.statusBackgroundColor(status: model.water.status)),
+				
+				(
+					panel: CarePanel.temperature,
+					title: "Temperature",
+					image: "Temperature",
+					imageHeight: 25.0,
+					background: Color.statusBackgroundColor(status: model.temperature.status)),
+				(
+					panel: CarePanel.light,
+					title: "Sunlight",
+					image: "Light",
+					imageHeight: 40.0,
+					background: Color.statusBackgroundColor(status: model.light.status)
+				)
 			]
+
 			VStack(alignment: .trailing, spacing: 25) {
 				ForEach(buttons, id: \.self.panel) { button in
 					HStack {
@@ -43,21 +61,15 @@ struct PlantCareView: View {
 							.foregroundColor(.itemSubtitle)
 							.opacity(currentPanel == button.panel ? 0.33 : 1)
 						
-						Button(action: {
+						VitalsButton(
+							imageName: button.image,
+							imageHeight: CGFloat(button.imageHeight),
+							backgroundColor: button.background.opacity(0.5)
+						) {
 							withAnimation {
 								currentPanel = button.panel
 							}
-						}) {
-							Image(button.image)
-								.resizable()
-								.foregroundColor(.buttonForeground)
-								.scaledToFit()
-								.frame(height: CGFloat(button.imageHeight))
-								.background(
-							Circle().foregroundColor(.buttonBackground).frame(width: 40, height: 40)
-						)
 						}
-						.frame(width: 40, height: 40)
 						.disabled(currentPanel == button.panel)
 						.opacity(currentPanel == button.panel ? 0.33 : 1)
 					}
@@ -71,9 +83,8 @@ struct PlantCareView: View {
 	}
 }
 
-
 struct PlantCareView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlantCareView(model: ModelData.plants[0])
-    }
+	static var previews: some View {
+		PlantCareView(model: ModelData.plants[0])
+	}
 }
