@@ -15,9 +15,20 @@ struct DetailsHeaderView: View {
 		Image(model.imageName)
 			.resizable()
 			.scaledToFit()
+			.padding(.bottom)
 			.frame(height: 350)
 			.transition(AnyTransition.move(edge: .trailing))
 			.animation(.easeInOut)
+			.background(
+				VStack {
+					Spacer()
+					Ellipse()
+					.fill(Color.black.opacity(0.3))
+						.padding(.horizontal, 10)
+						.frame(height: 80)
+						
+				}
+			)
 		
 		HStack {
 			VStack (alignment: .leading) {
