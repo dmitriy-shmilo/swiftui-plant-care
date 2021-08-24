@@ -7,6 +7,8 @@ SwiftUI implementation of [Plant Care App UI](https://dribbble.com/shots/1623257
   <img src="Screenshots/DetailsView.png" alt="Details View" width="300"/>
 </p>
 
+https://user-images.githubusercontent.com/1628773/130363842-3eeef1e5-7f3f-453f-a15b-be6a408690e9.mov
+
 # Image Credits: #
 
 [Orchid](https://www.pexels.com/photo/green-leafed-orchid-plant-on-pot-1309769/) by [shottrotter](https://www.pexels.com/@shottrotter).
