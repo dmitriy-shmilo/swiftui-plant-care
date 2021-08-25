@@ -11,6 +11,7 @@ struct RadialProgressView: View {
 	let backBarColor: Color
 	let frontBarColor: Color
 	let strokeWidth: CGFloat
+	let label: String
 	
 	@Binding var value: Float
 	@State private var shouldShowLabel: Bool = false
@@ -39,7 +40,7 @@ struct RadialProgressView: View {
 					.animation(.easeInOut.delay(delay), value: value)
 				
 				if shouldShowLabel {
-					Text("\(Int(min(max(value, 0.0), 1.0) * 100)) %")
+					Text(label)
 						.foregroundColor(frontBarColor)
 						.font(
 							.system(
@@ -56,9 +57,7 @@ struct RadialProgressView: View {
 			}
 		}
 		.onAppear {
-			withAnimation {
-				shouldShowLabel = true
-			}
+			shouldShowLabel = true
 		}
 	}
 }
@@ -69,6 +68,7 @@ struct RadialProgressView_Previews: PreviewProvider {
 			backBarColor: .gray,
 			frontBarColor: .accentColor,
 			strokeWidth: 25,
+			label: "33 %",
 			value: .constant(0.33)
 		)
 	}

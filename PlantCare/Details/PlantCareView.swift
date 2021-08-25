@@ -22,11 +22,11 @@ struct PlantCareView: View {
 		HStack {
 			switch currentPanel {
 			case .water:
-				PlantCareChartView(title: "Water Level", value: model.water.value)
+				PlantCareChartView(title: "Water Level", vitals: model.water)
 			case .temperature:
-				PlantCareChartView(title: "Temperature", value: model.temperature.value)
+				PlantCareChartView(title: "Temperature", vitals: model.temperature)
 			case .light:
-				PlantCareChartView(title: "Light Level", value: model.light.value)
+				PlantCareChartView(title: "Light Level", vitals: model.light)
 			}
 			
 			Spacer()

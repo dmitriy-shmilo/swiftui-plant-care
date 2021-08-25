@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlantCareChartView: View {
 	let title: String
-	let value: Float
+	let vitals: Vitals<Float>
 
 	@State private var progressValue: Float = 0.0
 	@State private var isVisible: Bool = false
@@ -24,12 +24,13 @@ struct PlantCareChartView: View {
 				backBarColor: .itemSubtitle.opacity(0.5),
 				frontBarColor: .itemTitle,
 				strokeWidth: 10,
+				label: vitals.asFormattedString(),
 				value: $progressValue
 			)
 			.padding([.horizontal, .bottom], 20)
 			.onAppear {
 				withAnimation {
-					progressValue = value
+					progressValue = vitals.value
 				}
 			}
 		}
@@ -50,6 +51,6 @@ struct PlantCareChartView: View {
 
 struct PlantCareChartView_Previews: PreviewProvider {
     static var previews: some View {
-		PlantCareChartView(title:"Water Level", value: 0.17)
+		PlantCareChartView(title:"Water Level", vitals: Vitals<Float>(0.17, .percent, .healthy))
     }
 }
