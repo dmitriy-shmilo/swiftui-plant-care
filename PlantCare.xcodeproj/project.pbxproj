@@ -25,6 +25,10 @@
 		5DE2F6C426D1993E00976F6E /* PlantCareChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE2F6C326D1993E00976F6E /* PlantCareChartView.swift */; };
 		5DE2F6C726D19D1A00976F6E /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE2F6C626D19D1A00976F6E /* Plant.swift */; };
 		5DE52ED726D11439000A0E71 /* RadialProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE52ED626D11439000A0E71 /* RadialProgressView.swift */; };
+		5DF4005C26D6724C000143F0 /* Vitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4005B26D6724C000143F0 /* Vitals.swift */; };
+		5DF4005E26D67259000143F0 /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4005D26D67259000143F0 /* Unit.swift */; };
+		5DF4006026D67260000143F0 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4005F26D67260000143F0 /* Status.swift */; };
+		5DF4006226D67292000143F0 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF4006126D67292000143F0 /* ModelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		5DE2F6C326D1993E00976F6E /* PlantCareChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCareChartView.swift; sourceTree = "<group>"; };
 		5DE2F6C626D19D1A00976F6E /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		5DE52ED626D11439000A0E71 /* RadialProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialProgressView.swift; sourceTree = "<group>"; };
+		5DF4005B26D6724C000143F0 /* Vitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vitals.swift; sourceTree = "<group>"; };
+		5DF4005D26D67259000143F0 /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		5DF4005F26D67260000143F0 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		5DF4006126D67292000143F0 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,10 @@
 			isa = PBXGroup;
 			children = (
 				5DE2F6C626D19D1A00976F6E /* Plant.swift */,
+				5DF4005B26D6724C000143F0 /* Vitals.swift */,
+				5DF4005D26D67259000143F0 /* Unit.swift */,
+				5DF4005F26D67260000143F0 /* Status.swift */,
+				5DF4006126D67292000143F0 /* ModelData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,18 +227,22 @@
 				5DCA274426D03E7A00E3AB5B /* RoundedCornersShape.swift in Sources */,
 				5DCA274D26D0430200E3AB5B /* ListItemView.swift in Sources */,
 				5DE2F6C426D1993E00976F6E /* PlantCareChartView.swift in Sources */,
+				5DF4005E26D67259000143F0 /* Unit.swift in Sources */,
 				5DCA274726D042BC00E3AB5B /* Color.swift in Sources */,
 				5DCA274B26D042F800E3AB5B /* ToolbarView.swift in Sources */,
 				5DCA275426D050D900E3AB5B /* DetailsHeaderView.swift in Sources */,
 				5DCA273726D02CD700E3AB5B /* ContentView.swift in Sources */,
 				5DCA275026D047F800E3AB5B /* DetailsView.swift in Sources */,
 				5DCA275626D0511F00E3AB5B /* PlantCareView.swift in Sources */,
+				5DF4005C26D6724C000143F0 /* Vitals.swift in Sources */,
 				5DE52ED726D11439000A0E71 /* RadialProgressView.swift in Sources */,
 				5DCA274926D042EF00E3AB5B /* HomeView.swift in Sources */,
 				5DE2F6C726D19D1A00976F6E /* Plant.swift in Sources */,
 				5D1F50D226D1D12A0033504F /* VitalsButton.swift in Sources */,
 				5DCA275226D0481B00E3AB5B /* DetailsToolbarView.swift in Sources */,
 				5DCA273526D02CD700E3AB5B /* PlantCareApp.swift in Sources */,
+				5DF4006226D67292000143F0 /* ModelData.swift in Sources */,
+				5DF4006026D67260000143F0 /* Status.swift in Sources */,
 				5D1F50CF26D1D0FB0033504F /* VitalsIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
