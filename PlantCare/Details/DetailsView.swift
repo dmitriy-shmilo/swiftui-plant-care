@@ -12,42 +12,47 @@ struct DetailsView: View {
 	@State private var hasAppeared = false
 	
 	var body: some View {
-		ScrollView {
-			VStack {
-				DetailsToolbarView()
-					.padding()
-					.padding(.top, 30)
-				
-				if hasAppeared {
-					DetailsHeaderView(model: model)
+		GeometryReader { proxy in
+			ScrollView {
+				VStack {
+					DetailsToolbarView()
+						.padding()
+						.padding(.top, proxy.safeAreaInsets.top)
+						.padding(.leading, proxy.safeAreaInsets.leading)
+						.padding(.trailing, proxy.safeAreaInsets.trailing)
 					
-					
-					Text("Plant Care")
-						.font(.system(size: 18, weight: .semibold, design: .rounded))
-						.foregroundColor(.itemTitle)
-						.padding(.vertical)
-						.transition(AnyTransition.move(edge: .trailing))
-						.animation(.easeInOut.delay(0.2))
-					
-					PlantCareView(model: model)
+					if hasAppeared {
+						DetailsHeaderView(model: model, parentGeometry: proxy)
+						
+						
+						Text("Plant Care")
+							.font(.system(size: 18, weight: .semibold, design: .rounded))
+							.foregroundColor(.itemTitle)
+							.padding(.vertical)
+							.padding(.leading, proxy.safeAreaInsets.leading)
+							.padding(.trailing, proxy.safeAreaInsets.trailing)
+							.transition(AnyTransition.move(edge: .trailing))
+							.animation(.easeInOut.delay(0.2))
+						
+						PlantCareView(model: model, parentGeometry: proxy)
+					}
+				}
+				.background(
+					RoundedRectangle(cornerRadius: 30)
+						.foregroundColor(.darkBackground)
+						.offset(x: 0, y: 370))
+			}
+			.background(Color.darkBackground.offset(x: 0, y: 400))
+			.ignoresSafeArea()
+			.navigationBarHidden(true)
+			.onAppear {
+				withAnimation {
+					hasAppeared = true
 				}
 			}
-			.background(
-				RoundedRectangle(cornerRadius: 30)
-					.foregroundColor(.darkBackground)
-					.offset(x: 0, y: 370))
-		}
-		.background(Color.darkBackground.offset(x: 0, y: 400))
-		.ignoresSafeArea()
-		
-		.navigationBarHidden(true)
-		.onAppear {
-			withAnimation {
-				hasAppeared = true
+			.onDisappear {
+				hasAppeared = false
 			}
-		}
-		.onDisappear {
-			hasAppeared = false
 		}
 	}
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DetailsHeaderView: View {
 	let model: Plant
+	let parentGeometry: GeometryProxy?
+
 	@State private var isFavorite = false
 
 	var body: some View {
@@ -26,7 +28,6 @@ struct DetailsHeaderView: View {
 					.fill(Color.black.opacity(0.3))
 						.padding(.horizontal, 10)
 						.frame(height: 80)
-						
 				}
 			)
 		
@@ -60,7 +61,8 @@ struct DetailsHeaderView: View {
 				}
 			}
 		}
-		.padding(.horizontal)
+		.padding(.leading, (parentGeometry?.safeAreaInsets.leading ?? 0) + 16)
+		.padding(.trailing, (parentGeometry?.safeAreaInsets.trailing ?? 0) + 16)
 		.transition(AnyTransition.move(edge: .trailing))
 		.animation(.easeInOut.delay(0.1))
 	}
@@ -68,6 +70,6 @@ struct DetailsHeaderView: View {
 
 struct DetailsHeaderView_Previews: PreviewProvider {
 	static var previews: some View {
-		DetailsHeaderView(model: ModelData.plants[0])
+		DetailsHeaderView(model: ModelData.plants[0], parentGeometry: nil)
 	}
 }

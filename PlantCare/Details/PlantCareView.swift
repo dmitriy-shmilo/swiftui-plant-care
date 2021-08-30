@@ -15,18 +15,20 @@ struct PlantCareView: View {
 		case light
 	}
 	
+	
 	let model: Plant
+	let parentGeometry: GeometryProxy?
 	@State private var currentPanel: CarePanel = .water
 	
 	var body: some View {
 		HStack {
 			switch currentPanel {
 			case .water:
-				PlantCareChartView(title: "Water Level", vitals: model.water)
+				PlantCareChartView(title: "Water Level", vitals: model.water, parentGeometry: parentGeometry)
 			case .temperature:
-				PlantCareChartView(title: "Temperature", vitals: model.temperature)
+				PlantCareChartView(title: "Temperature", vitals: model.temperature, parentGeometry: parentGeometry)
 			case .light:
-				PlantCareChartView(title: "Light Level", vitals: model.light)
+				PlantCareChartView(title: "Light Level", vitals: model.light, parentGeometry: parentGeometry)
 			}
 			
 			Spacer()
@@ -75,9 +77,10 @@ struct PlantCareView: View {
 					}
 				}
 			}
-			.padding(.trailing)
 			.frame(height: 175)
 		}
+		.padding(.leading, (parentGeometry?.safeAreaInsets.leading ?? 0) + 16)
+		.padding(.trailing, (parentGeometry?.safeAreaInsets.trailing ?? 0) + 16)
 		.transition(AnyTransition.move(edge: .trailing))
 		.animation(.easeInOut.delay(0.2))
 	}
@@ -85,6 +88,6 @@ struct PlantCareView: View {
 
 struct PlantCareView_Previews: PreviewProvider {
 	static var previews: some View {
-		PlantCareView(model: ModelData.plants[0])
+		PlantCareView(model: ModelData.plants[0], parentGeometry: nil)
 	}
 }
