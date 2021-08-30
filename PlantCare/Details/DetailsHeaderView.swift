@@ -9,8 +9,7 @@ import SwiftUI
 
 struct DetailsHeaderView: View {
 	let model: Plant
-	let parentGeometry: GeometryProxy?
-
+	@Environment(\.safeAreaInsets) var safeAreaInsets: EdgeInsets
 	@State private var isFavorite = false
 
 	var body: some View {
@@ -30,7 +29,6 @@ struct DetailsHeaderView: View {
 						.frame(height: 80)
 				}
 			)
-		
 		HStack {
 			VStack (alignment: .leading) {
 				Text(model.name)
@@ -61,8 +59,8 @@ struct DetailsHeaderView: View {
 				}
 			}
 		}
-		.padding(.leading, (parentGeometry?.safeAreaInsets.leading ?? 0) + 16)
-		.padding(.trailing, (parentGeometry?.safeAreaInsets.trailing ?? 0) + 16)
+		.padding(.leading, safeAreaInsets.leading + 16)
+		.padding(.trailing, safeAreaInsets.trailing + 16)
 		.transition(AnyTransition.move(edge: .trailing))
 		.animation(.easeInOut.delay(0.1))
 	}
@@ -70,6 +68,6 @@ struct DetailsHeaderView: View {
 
 struct DetailsHeaderView_Previews: PreviewProvider {
 	static var previews: some View {
-		DetailsHeaderView(model: ModelData.plants[0], parentGeometry: nil)
+		DetailsHeaderView(model: ModelData.plants[0])
 	}
 }

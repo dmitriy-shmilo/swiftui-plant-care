@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D1F50CF26D1D0FB0033504F /* VitalsIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1F50CE26D1D0FB0033504F /* VitalsIcon.swift */; };
 		5D1F50D226D1D12A0033504F /* VitalsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1F50D126D1D12A0033504F /* VitalsButton.swift */; };
+		5D4AEB0126DCBFF1002B56F0 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4AEB0026DCBFF1002B56F0 /* Environment.swift */; };
 		5DCA273526D02CD700E3AB5B /* PlantCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCA273426D02CD700E3AB5B /* PlantCareApp.swift */; };
 		5DCA273726D02CD700E3AB5B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCA273626D02CD700E3AB5B /* ContentView.swift */; };
 		5DCA273926D02CDA00E3AB5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DCA273826D02CDA00E3AB5B /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		5D1F50CE26D1D0FB0033504F /* VitalsIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitalsIcon.swift; sourceTree = "<group>"; };
 		5D1F50D126D1D12A0033504F /* VitalsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitalsButton.swift; sourceTree = "<group>"; };
+		5D4AEB0026DCBFF1002B56F0 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		5DCA273126D02CD700E3AB5B /* PlantCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCA273426D02CD700E3AB5B /* PlantCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCareApp.swift; sourceTree = "<group>"; };
 		5DCA273626D02CD700E3AB5B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				5DCA274E26D047ED00E3AB5B /* Details */,
 				5DCA274526D042A800E3AB5B /* Home */,
 				5DCA273A26D02CDA00E3AB5B /* Preview Content */,
+				5D4AEB0026DCBFF1002B56F0 /* Environment.swift */,
 			);
 			path = PlantCare;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				5DCA273726D02CD700E3AB5B /* ContentView.swift in Sources */,
 				5DCA275026D047F800E3AB5B /* DetailsView.swift in Sources */,
 				5DCA275626D0511F00E3AB5B /* PlantCareView.swift in Sources */,
+				5D4AEB0126DCBFF1002B56F0 /* Environment.swift in Sources */,
 				5DF4005C26D6724C000143F0 /* Vitals.swift in Sources */,
 				5DE52ED726D11439000A0E71 /* RadialProgressView.swift in Sources */,
 				5DCA274926D042EF00E3AB5B /* HomeView.swift in Sources */,

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailsToolbarView: View {
+	@Environment(\.safeAreaInsets) var safeAreaInsets: EdgeInsets
 	@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 	
 	var body: some View {
@@ -19,7 +20,12 @@ struct DetailsToolbarView: View {
 					.foregroundColor(.font)
 					.font(.system(size: 30))
 			}
+			.padding(.top, safeAreaInsets.top + 16)
+			.padding(.bottom, 16)
+			.padding(.leading, safeAreaInsets.leading + 16)
+			
 			Spacer()
+			
 			Button(action: {}) {
 				Image("Profile")
 					.resizable()
@@ -37,12 +43,16 @@ struct DetailsToolbarView: View {
 					)
 					.clipShape(Circle())
 			}
+			.padding(.top, safeAreaInsets.top + 16)
+			.padding(.bottom, 16)
+			.padding(.trailing, safeAreaInsets.trailing + 16)
 		}
+		.background(Color.init(white: 1.0, opacity: 0.5))
 	}
 }
 
 struct DetailsToolbarView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailsToolbarView()
-    }
+	static var previews: some View {
+		DetailsToolbarView()
+	}
 }
