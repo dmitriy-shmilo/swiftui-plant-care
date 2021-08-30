@@ -10,6 +10,9 @@ import SwiftUI
 struct ListItemView: View {
 	let model: Plant
 	
+	
+	@Environment(\.safeAreaInsets) var safeAreaInsets: EdgeInsets
+	
 	var body: some View {
 		HStack {
 			Image(model.imageName)
@@ -70,7 +73,7 @@ struct ListItemView: View {
 				)
 			)
 		)
-		.padding([.leading, .bottom], 30)
+		.padding(.leading, safeAreaInsets.leading + 32)
 	}
 }
 

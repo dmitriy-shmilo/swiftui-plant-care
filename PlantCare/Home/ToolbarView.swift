@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ToolbarView: View {
+	@Environment(\.safeAreaInsets) var safeAreaInsets: EdgeInsets
+	
 	var body: some View {
 		HStack {
 			Button(action: {}) {
@@ -15,7 +17,12 @@ struct ToolbarView: View {
 					.foregroundColor(.font)
 					.font(.system(size: 20))
 			}
+			.padding(.top, safeAreaInsets.top + 16)
+			.padding(.bottom, 16)
+			.padding(.leading, safeAreaInsets.trailing + 16)
+			
 			Spacer()
+			
 			Button(action: {}) {
 				Image("Profile")
 					.resizable()
@@ -33,7 +40,11 @@ struct ToolbarView: View {
 					)
 					.clipShape(Circle())
 			}
+			.padding(.top, safeAreaInsets.top + 16)
+			.padding(.bottom, 16)
+			.padding(.trailing, safeAreaInsets.trailing + 16)
 		}
+		.background(Color.init(white: 1.0, opacity: 0.5))
 	}
 }
 
